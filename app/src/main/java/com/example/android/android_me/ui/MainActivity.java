@@ -17,6 +17,7 @@
 package com.example.android.android_me.ui;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -48,8 +49,10 @@ public class MainActivity extends AppCompatActivity implements MasterListFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Configuration config = getResources().getConfiguration();
+
         // Determine if you're creating a two-pane or single-pane display
-        if(findViewById(R.id.android_me_linear_layout) != null) {
+        if(findViewById(R.id.android_me_linear_layout) != null && config.orientation == config.ORIENTATION_LANDSCAPE) {
             // This LinearLayout will only initially exist in the two-pane tablet case
             mTwoPane = true;
 
